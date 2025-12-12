@@ -3,6 +3,76 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 import numpy as np
+def inject_soft_minimal_css():
+    css = """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    html, body, [data-testid="stAppViewContainer"] {
+        background-color: #FAFAFA !important;
+        font-family: 'Inter', sans-serif !important;
+        color: #1A1A1A !important;
+    }
+
+    [data-testid="stSidebar"] {
+        background-color: #FFFFFF !important;
+        border-right: 1px solid rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 {
+        font-weight: 600 !important;
+        color: #0F0F0F !important;
+        letter-spacing: -0.3px;
+    }
+    h1 { font-size: 30px !important; }
+    h2 { font-size: 24px !important; }
+    h3 { font-size: 18px !important; }
+
+    .stMarkdown, .stText, .stWrite {
+        font-size: 14.5px !important;
+        font-weight: 400 !important;
+        line-height: 1.55;
+    }
+
+    .stButton > button, button[data-baseweb="button"] {
+        background-color: #3A86FF !important;
+        color: #FFFFFF !important;
+        border-radius: 10px !important;
+        padding: 10px 18px !important;
+        font-weight: 600 !important;
+        border: none !important;
+        transition: all 0.15s ease;
+    }
+    .stButton > button:hover {
+        background-color: #2F6FCE !important;
+        transform: translateY(-1px);
+    }
+
+    input, textarea, select, .stTextInput > div > div > input {
+        background: #FFFFFF !important;
+        border-radius: 8px !important;
+        border: 1px solid rgba(0,0,0,0.1) !important;
+        padding: 8px 10px !important;
+        color: #1A1A1A !important;
+    }
+
+    .stDataFrame, .stDataFrame table {
+        background-color: #FFFFFF !important;
+        border-radius: 8px !important;
+        font-size: 13px !important;
+    }
+
+    .block-container {
+        padding-top: 2rem !important;
+    }
+
+    #MainMenu, footer { visibility: hidden !important; }
+    </style>
+    """
+    st.markdown(css, unsafe_allow_html=True)
+
+inject_soft_minimal_css()
+
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LinearRegression
